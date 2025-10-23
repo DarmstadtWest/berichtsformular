@@ -9,19 +9,78 @@
   <link href="https://fonts.googleapis.com/css2?family=Scheherazade+New&display=swap" rel="stylesheet">
 
   <style>
+    :root {
+      --bg-color: linear-gradient(#f6f7fb, #eaf1ed);
+      --text-color: #333;
+      --accent-color: #006633;
+      --border-color: #dfe7e3;
+      --button-hover: #004d26;
+      --feedback-bg: #006633;
+    }
+    body.dark-mode {
+      --bg-color: #1f1f1f;
+      --text-color: #e0e0e0;
+      --accent-color: #00b46f;
+      --border-color: #444;
+      --button-hover: #00945c;
+      --feedback-bg: #00b46f;
+    }
+
+    html, body { margin: 0; padding: 0; }
+
     body {
       font-family: Arial, sans-serif;
-      background: linear-gradient(#f6f7fb, #eaf1ed);
-      color: #333;
+      background: var(--bg-color);
+      color: var(--text-color);
       max-width: 90%;
       width: 600px;
       margin: 40px auto;
       padding: 20px;
       border-radius: 8px;
       box-shadow: 0 0 10px rgba(0,0,0,0.1);
-      border: 1px solid #dfe7e3;
+      border: 1px solid var(--border-color);
+      position: relative;
+      transition: background 0.4s, color 0.4s;
       text-align: center;
     }
+
+    /* Dark Mode Toggle – fix oben rechts, keine Styles vom normalen Button */
+    .mode-toggle {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      z-index: 999;
+      width: auto;
+      height: auto;
+      padding: 0;
+      margin: 0;
+      background: transparent;
+      border: none;
+      color: var(--accent-color);
+      font-size: 24px;
+      line-height: 1;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform 0.2s, color 0.3s;
+      -webkit-appearance: none;
+      appearance: none;
+      -webkit-tap-highlight-color: transparent; /* iOS/Safari */
+    }
+    .mode-toggle:hover,
+    .mode-toggle:active {
+      background: transparent;
+      transform: scale(1.1);
+    }
+    .mode-toggle:focus,
+    .mode-toggle:focus-visible {
+      outline: none;
+      box-shadow: none;
+      background: transparent;
+      border: none;
+    }
+
     img.logo {
       display: block;
       margin: 0 auto 15px auto;
@@ -30,11 +89,11 @@
     .bismillah {
       font-family: 'Scheherazade New', serif;
       font-size: 22px;
-      color: #006633;
+      color: var(--accent-color);
       margin-bottom: 25px;
     }
     h1 {
-      color: #006633;
+      color: var(--accent-color);
       margin-bottom: 5px;
     }
     h2 {
@@ -43,9 +102,11 @@
       margin-top: 0;
       margin-bottom: 20px;
     }
+    body.dark-mode h2 { color: #ccc; }
+
     blockquote {
       font-style: italic;
-      color: #006633;
+      color: var(--accent-color);
       padding-left: 0;
       margin-bottom: 30px;
       text-align: center;
@@ -57,38 +118,52 @@
       display: block;
       margin-top: 5px;
     }
-    form {
-      text-align: left;
-    }
+
+    form { text-align: left; }
     label {
       display: block;
       margin-top: 15px;
       font-weight: bold;
     }
-    input, select, textarea, button {
+
+    /* WICHTIG: Normale Form-Elemente + Buttons, aber NICHT der Toggle-Button */
+    input, select, textarea, button:not(.mode-toggle) {
       width: 100%;
       padding: 8px;
       margin-top: 5px;
       border: 1px solid #ccc;
       border-radius: 4px;
       box-sizing: border-box;
+      background-color: #fff;
+      color: #000;
+      transition: border-color 0.2s, background-color 0.3s, color 0.3s;
     }
-    button {
-      background-color: #006633;
+    body.dark-mode input,
+    body.dark-mode select,
+    body.dark-mode textarea {
+      background-color: #2c2c2c;
+      color: #eee;
+      border: 1px solid #555;
+    }
+
+    /* Nur der Formular-Button erhält Hover-Farbe – NICHT der Toggle */
+    button:not(.mode-toggle) {
+      background-color: var(--accent-color);
       color: white;
       font-size: 16px;
       margin-top: 20px;
       cursor: pointer;
       transition: background-color 0.2s;
     }
-    button:hover {
-      background-color: #004d26;
+    button:not(.mode-toggle):hover {
+      background-color: var(--button-hover);
     }
+
     .feedback {
       display: none;
       margin-top: 20px;
       color: white;
-      background-color: #006633;
+      background-color: var(--feedback-bg);
       padding: 10px;
       border-radius: 5px;
     }
@@ -98,9 +173,23 @@
       margin-top: 40px;
       line-height: 1.5;
     }
+    body.dark-mode .rechtlicher-hinweis { color: #aaa; }
+
+    /* Mobile */
+    @media (max-width: 500px) {
+      body { margin: 20px; padding: 15px; }
+      img.logo { max-width: 120px; }
+      .bismillah { font-size: 18px; }
+      h1 { font-size: 20px; }
+      h2 { font-size: 16px; }
+      input, select, textarea, button:not(.mode-toggle) { font-size: 15px; }
+      .mode-toggle { top: 15px; right: 15px; font-size: 22px; }
+    }
   </style>
 </head>
 <body>
+
+  <button class="mode-toggle" id="modeToggle" title="Dark Mode umschalten" aria-label="Dark Mode umschalten">🌙</button>
 
   <img src="Ahmadiyya-Logo_Original.png" alt="Ahmadiyya Logo" class="logo">
 
@@ -109,7 +198,6 @@
   <h1>Berichtsformular Oktober 2025</h1>
   <h2>Darmstadt West</h2>
 
-  <!-- Zitat von Hazrat Khalifatul Masih V (aba) -->
   <blockquote>
     „Berichte sind nicht nur Zahlen, sondern ein Spiegelbild eures Zustands.
     Wenn sie wahrheitsgetreu und vollständig sind, dann helfen sie der Jamaat,
@@ -160,6 +248,7 @@
   </div>
 
   <script>
+    // Formular senden
     const form = document.getElementById('berichtForm');
     const feedback = document.getElementById('feedback');
 
@@ -179,6 +268,22 @@
       }).catch(() => {
         alert('Verbindung fehlgeschlagen. Bitte später erneut versuchen.');
       });
+    });
+
+    // Dark Mode Toggle
+    const toggle = document.getElementById('modeToggle');
+    const body = document.body;
+
+    if (localStorage.getItem('dark-mode') === 'true') {
+      body.classList.add('dark-mode');
+      toggle.textContent = '☀️';
+    }
+
+    toggle.addEventListener('click', () => {
+      body.classList.toggle('dark-mode');
+      const isDark = body.classList.contains('dark-mode');
+      toggle.textContent = isDark ? '☀️' : '🌙';
+      localStorage.setItem('dark-mode', isDark);
     });
   </script>
 
