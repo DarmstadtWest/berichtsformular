@@ -14,10 +14,19 @@
       padding: 20px;
       border-radius: 8px;
       box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+    img.logo {
+      display: block;
+      margin: 0 auto 20px auto;
+      max-width: 150px;
     }
     h1 {
-      text-align: center;
       color: #006633;
+      margin-bottom: 30px;
+    }
+    form {
+      text-align: left;
     }
     label {
       display: block;
@@ -42,12 +51,20 @@
     button:hover {
       background-color: #004d26;
     }
+    .feedback {
+      display: none;
+      margin-top: 20px;
+      color: #006633;
+      font-weight: bold;
+    }
   </style>
 </head>
 <body>
+
+  <img src="Ahmadiyya-Logo_Original.png" alt="Ahmadiyya Logo" class="logo">
   <h1>Berichtsformular</h1>
-  <form action="https://formspree.io/f/movkozeq" method="POST">
-    
+
+  <form id="berichtForm" action="https://formspree.io/f/movkozeq" method="POST">
     <label for="name">Name:</label>
     <input type="text" id="name" name="name" required>
 
@@ -77,5 +94,33 @@
 
     <button type="submit">Bericht absenden</button>
   </form>
+
+  <div class="feedback" id="feedback">
+    Vielen Dank, Ihr Bericht wurde erfolgreich gesendet!
+  </div>
+
+  <script>
+    const form = document.getElementById('berichtForm');
+    const feedback = document.getElementById('feedback');
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      fetch(form.action, {
+        method: form.method,
+        body: new FormData(form),
+        headers: { 'Accept': 'application/json' }
+      }).then(response => {
+        if (response.ok) {
+          form.reset();
+          feedback.style.display = 'block';
+        } else {
+          alert('Es gab ein Problem beim Senden des Formulars.');
+        }
+      }).catch(() => {
+        alert('Verbindung fehlgeschlagen. Bitte später erneut versuchen.');
+      });
+    });
+  </script>
+
 </body>
 </html>
