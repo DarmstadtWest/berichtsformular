@@ -1,186 +1,162 @@
 <!DOCTYPE html>
 <html lang="de">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Berichtsformular – Ahmadiyya</title>
+	<head>
+	  <meta charset="UTF-8">
+	  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	  <title>Berichtsformular – Ahmadiyya</title>
+	  <style>
+		body {
+		  font-family: Arial, sans-serif;
+		  background-color: #f6f7fb;
+		  color: #333;
+		  max-width: 600px;
+		  margin: 40px auto;
+		  padding: 20px;
+		  border-radius: 8px;
+		  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+		  text-align: center;
+		}
+		img.logo {
+		  display: block;
+		  margin: 0 auto 20px auto;
+		  max-width: 150px;
+		}
+		h1 {
+		  color: #006633;
+		  margin-bottom: 5px;
+		}
+		h2 {
+		  color: #555;
+		  font-weight: normal;
+		  margin-top: 0;
+		  margin-bottom: 30px;
+		}
+		form {
+		  text-align: left;
+		}
+		label {
+		  display: block;
+		  margin-top: 15px;
+		  font-weight: bold;
+		}
+		input, select, textarea, button {
+		  width: 100%;
+		  padding: 8px;
+		  margin-top: 5px;
+		  border: 1px solid #ccc;
+		  border-radius: 4px;
+		  box-sizing: border-box;
+		}
+		button {
+		  background-color: #006633;
+		  color: white;
+		  font-size: 16px;
+		  margin-top: 20px;
+		  cursor: pointer;
+		}
+		button:hover {
+		  background-color: #004d26;
+		}
+		.feedback {
+		  display: none;
+		  margin-top: 20px;
+		  color: #006633;
+		  font-weight: bold;
+		}
+		.rechtlicher-hinweis {
+		  font-size: 12px;
+		  color: #666;
+		  margin-top: 40px;
+		  line-height: 1.5;
+		}
+	  </style>
+	</head>
+	<body>
+	  <img src="Ahmadiyya-Logo_Original.png" alt="Ahmadiyya Logo" class="logo">
+	  <h1>Berichtsformular Oktober 2025</h1>
+	  <h2>Darmstadt West</h2>
 
-  <!-- Schöne arabische Schrift für die Bismillah -->
-  <link href="https://fonts.googleapis.com/css2?family=Scheherazade+New&display=swap" rel="stylesheet">
+	  <form id="berichtForm" action="https://formspree.io/f/movkozeq" method="POST">
+		<label for="name">Name:</label>
+		<input type="text" id="name" name="name" required>
 
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background: linear-gradient(#f6f7fb, #eaf1ed);
-      color: #333;
-      max-width: 90%;
-      width: 600px;
-      margin: 40px auto;
-      padding: 20px;
-      border-radius: 8px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
-      border: 1px solid #dfe7e3;
-      text-align: center;
-    }
-    img.logo {
-      display: block;
-      margin: 0 auto 15px auto;
-      max-width: 150px;
-    }
-    .bismillah {
-      font-family: 'Scheherazade New', serif;
-      font-size: 22px;
-      color: #006633;
-      margin-bottom: 25px;
-    }
-    h1 {
-      color: #006633;
-      margin-bottom: 5px;
-    }
-    h2 {
-      color: #555;
-      font-weight: normal;
-      margin-top: 0;
-      margin-bottom: 20px;
-    }
-    blockquote {
-      font-style: italic;
-      color: #006633;
-      padding-left: 0;
-      margin-bottom: 30px;
-      text-align: center;
-      font-size: 14px;
-      line-height: 1.5;
-    }
-    blockquote small {
-      font-size: 12px;
-      display: block;
-      margin-top: 5px;
-    }
-    form {
-      text-align: left;
-    }
-    label {
-      display: block;
-      margin-top: 15px;
-      font-weight: bold;
-    }
-    input, select, textarea, button {
-      width: 100%;
-      padding: 8px;
-      margin-top: 5px;
-      border: 1px solid #ccc;
-      border-radius: 4px;
-      box-sizing: border-box;
-    }
-    button {
-      background-color: #006633;
-      color: white;
-      font-size: 16px;
-      margin-top: 20px;
-      cursor: pointer;
-      transition: background-color 0.2s;
-    }
-    button:hover {
-      background-color: #004d26;
-    }
-    .feedback {
-      display: none;
-      margin-top: 20px;
-      color: white;
-      background-color: #006633;
-      padding: 10px;
-      border-radius: 5px;
-    }
-    .rechtlicher-hinweis {
-      font-size: 12px;
-      color: #666;
-      margin-top: 40px;
-      line-height: 1.5;
-    }
-  </style>
-</head>
-<body>
+		<label for="amt">Amt / Funktion:</label>
+		<input type="text" id="amt" name="amt">
 
-  <img src="Ahmadiyya-Logo_Original.png" alt="Ahmadiyya Logo" class="logo">
+		<label for="gebete">Wie oft haben Sie gebetet?</label>
+		<input type="text" id="gebete" name="gebete">
 
-  <div class="bismillah">بِسْمِ اللهِ الرَّحْمٰنِ الرَّحِيْمِ</div>
+		<label for="koran">Haben Sie den Koran gelesen?</label>
+		<select id="koran" name="koran">
+		  <option>Ja</option>
+		  <option>Nein</option>
+		</select>
 
-  <h1>Berichtsformular Oktober 2025</h1>
-  <h2>Darmstadt West</h2>
+		<label for="moschee">Wie oft waren Sie in der Moschee?</label>
+		<input type="number" id="moschee" name="moschee">
 
-  <!-- Zitat von Hazrat Khalifatul Masih V (aba) -->
-  <blockquote>
-    „Berichte sind nicht nur Zahlen, sondern ein Spiegelbild eures Zustands.
-    Wenn sie wahrheitsgetreu und vollständig sind, dann helfen sie der Jamaat,
-    sich zu verbessern.“<br>
-    <small>– Hadrat Mirza Masroor Ahmad (aba)</small>
-  </blockquote>
+		<label for="freitagsansprache">Haben Sie die Freitagsansprache gehört?</label>
+		<select id="freitagsansprache" name="freitagsansprache">
+		  <option>Ja</option>
+		  <option>Nein</option>
+		</select>
 
-  <form id="berichtForm" action="https://formspree.io/f/movkozeq" method="POST">
-    <label for="name">Name:</label>
-    <input type="text" id="name" name="name" required>
+		<label for="bemerkungen">Zusätzliche Bemerkungen:</label>
+		<textarea id="bemerkungen" name="bemerkungen" rows="4"></textarea>
 
-    <label for="amt">Amt / Funktion:</label>
-    <input type="text" id="amt" name="amt">
+		<button type="submit">Bericht absenden</button>
+	  </form>
 
-    <label for="gebete">Wie oft haben Sie gebetet?</label>
-    <input type="text" id="gebete" name="gebete">
+	  <div class="feedback" id="feedback">
+		Vielen Dank, Ihr Bericht wurde erfolgreich gesendet!
+	  </div>
 
-    <label for="koran">Haben Sie den Koran gelesen?</label>
-    <select id="koran" name="koran">
-      <option>Ja</option>
-      <option>Nein</option>
-    </select>
+	  <div class="rechtlicher-hinweis">
+		Dieses Formular ist ausschließlich für Mitglieder der Ahmadiyya Muslim Jamaat Darmstadt West bestimmt.  
+		Alle übermittelten Angaben werden vertraulich behandelt und nicht an Dritte weitergegeben.  
+		Es werden keine personenbezogenen Daten erhoben oder gespeichert.  
+		Die Daten werden anonym übermittelt.
+	  </div>
 
-    <label for="moschee">Wie oft waren Sie in der Moschee?</label>
-    <input type="number" id="moschee" name="moschee">
+	  <script>
+		// 🗓️ Zeitraum, in dem das Formular aktiv ist
+		const startDatum = new Date("2025-10-01T08:00:00"); // ab 25. Okt 2025, 08:00 Uhr
+		const endDatum   = new Date("2025-10-30T11:18:00"); // bis 30. Okt 2025, 23:59 Uhr
+		const heute = new Date();
 
-    <label for="freitagsansprache">Haben Sie die Freitagsansprache gehört?</label>
-    <select id="freitagsansprache" name="freitagsansprache">
-      <option>Ja</option>
-      <option>Nein</option>
-    </select>
+		// Prüfen, ob das heutige Datum im erlaubten Zeitraum liegt
+		const formularAktiv = heute >= startDatum && heute <= endDatum;
 
-    <label for="bemerkungen">Zusätzliche Bemerkungen:</label>
-    <textarea id="bemerkungen" name="bemerkungen" rows="4"></textarea>
+		window.addEventListener('DOMContentLoaded', () => {
+		  const form = document.getElementById('berichtForm');
+		  const feedback = document.getElementById('feedback');
 
-    <button type="submit">Bericht absenden</button>
-  </form>
+		  if (!formularAktiv) {
+			form.innerHTML = '<p style="color:red; font-weight:bold; text-align:center;">Das Formular ist derzeit offline.<br>Es ist nur vom ' +
+			  startDatum.toLocaleDateString("de-DE") + ' bis ' + endDatum.toLocaleDateString("de-DE") +
+			  ' verfügbar.</p>';
+			return;
+		  }
 
-  <div class="feedback" id="feedback">
-    Vielen Dank, Ihr Bericht wurde erfolgreich gesendet!
-  </div>
-
-  <div class="rechtlicher-hinweis">
-    Dieses Formular ist ausschließlich für Mitglieder der Ahmadiyya Muslim Jamaat Darmstadt West bestimmt.  
-    Alle übermittelten Angaben werden vertraulich behandelt und nicht an Dritte weitergegeben.  
-    Es werden keine personenbezogenen Daten erhoben oder gespeichert.  
-    Die Daten werden anonym übermittelt.
-  </div>
-
-  <script>
-    const form = document.getElementById('berichtForm');
-    const feedback = document.getElementById('feedback');
-
-    form.addEventListener('submit', function (e) {
-      e.preventDefault();
-      fetch(form.action, {
-        method: form.method,
-        body: new FormData(form),
-        headers: { 'Accept': 'application/json' }
-      }).then(response => {
-        if (response.ok) {
-          form.reset();
-          feedback.style.display = 'block';
-        } else {
-          alert('Es gab ein Problem beim Senden des Formulars.');
-        }
-      }).catch(() => {
-        alert('Verbindung fehlgeschlagen. Bitte später erneut versuchen.');
-      });
-    });
-  </script>
-
-</body>
+		  // Formular absenden
+		  form.addEventListener('submit', function (e) {
+			e.preventDefault();
+			fetch(form.action, {
+			  method: form.method,
+			  body: new FormData(form),
+			  headers: { 'Accept': 'application/json' }
+			}).then(response => {
+			  if (response.ok) {
+				form.reset();
+				feedback.style.display = 'block';
+			  } else {
+				alert('Es gab ein Problem beim Senden des Formulars.');
+			  }
+			}).catch(() => {
+			  alert('Verbindung fehlgeschlagen. Bitte später erneut versuchen.');
+			});
+		  });
+		});
+	  </script>
+	</body>
 </html>
