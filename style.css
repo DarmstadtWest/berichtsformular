@@ -1,12 +1,14 @@
 body {
   font-family: Arial, sans-serif;
-  background-color: #f6f7fb;
+  background: linear-gradient(#f6f7fb, #eaf1ed);
   color: #333;
-  max-width: 600px;
+  max-width: 90%;
+  width: 600px;
   margin: 40px auto;
   padding: 20px;
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  border: 1px solid #dfe7e3;
   text-align: center;
 }
 
@@ -14,6 +16,13 @@ img.logo {
   display: block;
   margin: 0 auto 20px auto;
   max-width: 150px;
+}
+
+.bismillah {
+  font-family: 'Scheherazade New', serif;
+  font-size: 22px;
+  color: #006633;
+  margin-bottom: 25px;
 }
 
 h1 {
@@ -26,6 +35,21 @@ h2 {
   font-weight: normal;
   margin-top: 0;
   margin-bottom: 30px;
+}
+
+blockquote {
+  font-style: italic;
+  color: #006633;
+  text-align: center;
+  font-size: 14px;
+  line-height: 1.5;
+  margin-bottom: 30px;
+}
+
+blockquote small {
+  font-size: 12px;
+  display: block;
+  margin-top: 5px;
 }
 
 form {
@@ -58,8 +82,8 @@ button {
   font-size: 16px;
   margin-top: 20px;
   cursor: pointer;
+  transition: background-color 0.2s;
 }
-
 button:hover {
   background-color: #004d26;
 }
