@@ -3,6 +3,7 @@ const startDatum = new Date("2025-10-01T08:00:00"); // ab 1. Okt 2025, 08:00 Uhr
 const endDatum   = new Date("2025-10-30T23:59:00"); // bis 30. Okt 2025, 23:59 Uhr
 const heute = new Date();
 
+// Prüfen, ob Formular aktiv ist
 const formularAktiv = heute >= startDatum && heute <= endDatum;
 
 window.addEventListener('DOMContentLoaded', () => {
@@ -13,8 +14,7 @@ window.addEventListener('DOMContentLoaded', () => {
     form.innerHTML = `
       <p style="color:red; font-weight:bold; text-align:center;">
         Das Formular ist derzeit offline.<br>
-        Es ist verfügbar vom <br>
-        ${startDatum.toLocaleString("de-DE")} bis ${endDatum.toLocaleString("de-DE")}.
+        Es ist verfügbar vom <br> ${startDatum.toLocaleString("de-DE")} bis ${endDatum.toLocaleString("de-DE")}.
       </p>`;
     return;
   }
