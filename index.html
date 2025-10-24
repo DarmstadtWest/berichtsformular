@@ -1,74 +1,84 @@
 <!DOCTYPE html>
 <html lang="de">
-	<head>
-	  <meta charset="UTF-8">
-	  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-	  <title>Berichtsformular – Ahmadiyya</title>
-	  <!-- Arabische Schrift für die Bismillah -->
-	  <link href="https://fonts.googleapis.com/css2?family=Scheherazade+New&display=swap" rel="stylesheet">
-	  <link rel="stylesheet" href="style.css">
-	</head>
-	<body>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Berichtsformular – Ahmadiyya</title>
 
-	  <img src="Ahmadiyya-Logo_Original.png" alt="Ahmadiyya Logo" class="logo">
-	  <div class="bismillah">بِسْمِ اللهِ الرَّحْمٰنِ الرَّحِيْمِ</div>
-	  <h1>Berichtsformular Oktober 2025</h1>
-	  <h2>Darmstadt West</h2>
-	  
-	  <!-- Zitat -->
-	  <blockquote>
-		„Berichte sind nicht nur Zahlen, sondern ein Spiegelbild eures Zustands.
-		Wenn sie wahrheitsgetreu und vollständig sind, dann helfen sie der Jamaat,
-		sich zu verbessern.“
-		<br><small>– Hadrat Mirza Masroor Ahmad (aba)</small>
-	  </blockquote>
+    <!-- Arabische Schrift für die Bismillah -->
+    <link href="https://fonts.googleapis.com/css2?family=Scheherazade+New&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
 
-	  <form id="berichtForm" action="https://formspree.io/f/movkozeq" method="POST">
-		<label for="name">Name:<span class="pflicht">*</span></label>
-		<input type="text" id="name" name="name" placeholder="Bitte vollständigen Namen eingeben"
-			   pattern="[A-Za-zÄÖÜäöüß\s]+" title="Nur Buchstaben erlaubt" required>
+    <img src="Ahmadiyya-Logo_Original.png" alt="Ahmadiyya Logo" class="logo">
+    <div class="bismillah">بِسْمِ اللهِ الرَّحْمٰنِ الرَّحِيْمِ</div>
+    <h1>Berichtsformular Oktober 2025</h1>
+    <h2>Darmstadt West</h2>
 
-		<label for="amt">Amt / Funktion:<span class="pflicht">*</span></label>
-		<input type="text" id="amt" name="amt" placeholder="z. B. Präsident, Sekretär, Nasir usw."
-			   pattern="[A-Za-zÄÖÜäöüß\s]+" title="Nur Buchstaben erlaubt" required>
+    <!-- Zitat -->
+    <blockquote>
+      „Berichte sind nicht nur Zahlen, sondern ein Spiegelbild eures Zustands.
+      Wenn sie wahrheitsgetreu und vollständig sind, dann helfen sie der Jamaat,
+      sich zu verbessern.“
+      <br><small>– Hadrat Mirza Masroor Ahmad (aba)</small>
+    </blockquote>
 
-		<label for="gebete">Wie oft haben Sie gebetet?<span class="pflicht">*</span></label>
-		<input type="number" id="gebete" name="gebete" placeholder="z. B. 150 (Anzahl der Gebete)" min="0" required>
+    <!-- Formular -->
+    <form id="berichtForm" action="https://formspree.io/f/movkozeq" method="POST">
 
-		<label for="koran">Haben Sie den Koran gelesen?<span class="pflicht">*</span></label>
-		<select id="koran" name="koran" required>
-		  <option value="" selected>Bitte auswählen</option>
-		  <option>Ja</option>
-		  <option>Nein</option>
-		</select>
+      <label for="name">Name:<span class="pflicht">*</span></label>
+      <input type="text" id="name" name="name"
+             placeholder="Bitte vollständigen Namen eingeben"
+             pattern="[A-Za-zÄÖÜäöüß\s]+" title="Nur Buchstaben erlaubt" required>
 
-		<label for="moschee">Wie oft waren Sie in der Moschee?<span class="pflicht">*</span></label>
-		<input type="number" id="moschee" name="moschee" placeholder="Anzahl der Besuche (z. B. 8)" min="0" required>
+      <label for="amt">Amt / Funktion:<span class="pflicht">*</span></label>
+      <input type="text" id="amt" name="amt"
+             placeholder="z. B. Präsident, Sekretär, Nasir usw."
+             pattern="[A-Za-zÄÖÜäöüß\s]+" title="Nur Buchstaben erlaubt" required>
 
-		<label for="freitagsansprache">Haben Sie die Freitagsansprache gehört?<span class="pflicht">*</span></label>
-		<select id="freitagsansprache" name="freitagsansprache" required>
-		  <option value="" selected>Bitte auswählen</option>
-		  <option>Ja</option>
-		  <option>Nein</option>
-		</select>
+      <label for="gebete">Wie oft haben Sie gebetet?<span class="pflicht">*</span></label>
+      <input type="number" id="gebete" name="gebete"
+             placeholder="z. B. 150 (Anzahl der Gebete)" min="0" required>
 
-		<label for="bemerkungen">Zusätzliche Bemerkungen:</label>
-		<textarea id="bemerkungen" name="bemerkungen" rows="4"></textarea>
+      <label for="koran">Haben Sie den Koran gelesen?<span class="pflicht">*</span></label>
+      <select id="koran" name="koran" required>
+        <option value="" selected>Bitte auswählen</option>
+        <option>Ja</option>
+        <option>Nein</option>
+      </select>
 
-		<button type="submit">Bericht absenden</button>
-	  </form>
+      <label for="moschee">Wie oft waren Sie in der Moschee?<span class="pflicht">*</span></label>
+      <input type="number" id="moschee" name="moschee"
+             placeholder="Anzahl der Besuche (z. B. 8)" min="0" required>
 
-	  <div class="feedback" id="feedback">
-		Jazakallah, Ihr Bericht wurde erfolgreich gesendet!
-	  </div>
+      <label for="freitagsansprache">Haben Sie die Freitagsansprache gehört?<span class="pflicht">*</span></label>
+      <select id="freitagsansprache" name="freitagsansprache" required>
+        <option value="" selected>Bitte auswählen</option>
+        <option>Ja</option>
+        <option>Nein</option>
+      </select>
 
-	  <div class="rechtlicher-hinweis">
-		Dieses Formular ist ausschließlich für Mitglieder der Ahmadiyya Muslim Jamaat Darmstadt West bestimmt.  
-		Alle übermittelten Angaben werden vertraulich behandelt und nicht an Dritte weitergegeben.  
-		Es werden keine personenbezogenen Daten erhoben oder gespeichert.  
-		Die Daten werden anonym übermittelt.
-	  </div>
+      <label for="bemerkungen">Zusätzliche Bemerkungen:</label>
+      <textarea id="bemerkungen" name="bemerkungen" rows="4"
+                placeholder="Hier können Sie zusätzliche Informationen eintragen..."></textarea>
 
-	  <script src="script.js"></script>
-	</body>
+      <button type="submit">Bericht absenden</button>
+    </form>
+
+    <!-- Feedback -->
+    <div class="feedback" id="feedback">
+      Jazakallah, Ihr Bericht wurde erfolgreich gesendet!
+    </div>
+
+    <!-- Rechtlicher Hinweis -->
+    <div class="rechtlicher-hinweis">
+      Dieses Formular ist ausschließlich für Mitglieder der Ahmadiyya Muslim Jamaat Darmstadt West bestimmt.  
+      Alle übermittelten Angaben werden vertraulich behandelt und nicht an Dritte weitergegeben.  
+      Es werden keine personenbezogenen Daten erhoben oder gespeichert.  
+      Die Daten werden anonym übermittelt.
+    </div>
+
+    <script src="script.js"></script>
+  </body>
 </html>
