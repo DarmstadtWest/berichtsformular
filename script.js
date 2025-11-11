@@ -1,6 +1,6 @@
 // 🗓️ Zeitraum, in dem das Formular aktiv ist (mit Uhrzeit)
 const startDatum = new Date("2025-10-01T08:00:00"); // ab 1. Okt 2025, 08:00 Uhr
-const endDatum   = new Date("2025-10-30T23:59:00"); // bis 30. Okt 2025, 23:59 Uhr
+const endDatum   = new Date("2025-11-30T23:59:00"); // bis 30. Okt 2025, 23:59 Uhr
 const heute = new Date();
 
 // Prüfen, ob Formular aktiv ist
@@ -38,3 +38,4 @@ window.addEventListener('DOMContentLoaded', () => {
     });
   });
 });
+
