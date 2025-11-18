@@ -25,43 +25,59 @@
     </blockquote>
 
     <!-- Formular -->
-    <form id="berichtForm" action="https://formspree.io/f/movkozeq" method="POST">
+    <!-- <form id="berichtForm" action="https://formspree.io/f/movkozeq" method="POST"> -->
+	<form id="berichtForm" action="https://script.google.com/macros/s/AKfycbyTUYXyJcI59w9SDFBBFQRxPIZn1jpi_ChHPchg08HmXy4bceMKfajmqp2WjblmY-rg/exec" method="POST">
 
-      <label for="name">Name:<span class="pflicht">*</span></label>
-      <input type="text" id="name" name="name"
-             placeholder="Bitte vollständigen Namen eingeben"
-             pattern="[A-Za-zÄÖÜäöüß\s]+" title="Nur Buchstaben erlaubt" required>
+      <!-- Abschnitt 1 -->
+      <fieldset>
+        <legend>Allgemeine Angaben</legend>
 
-      <label for="amt">Amt / Funktion:<span class="pflicht">*</span></label>
-      <input type="text" id="amt" name="amt"
-             placeholder="z. B. Präsident, Sekretär, Nasir usw."
-             pattern="[A-Za-zÄÖÜäöüß\s]+" title="Nur Buchstaben erlaubt" required>
+        <label for="name">Name:<span class="pflicht">*</span></label>
+        <input type="text" id="name" name="name"
+               placeholder="Bitte vollständigen Namen eingeben"
+               pattern="[A-Za-zÄÖÜäöüß\s]+" title="Nur Buchstaben erlaubt" required>
 
-      <label for="gebete">Wie oft haben Sie gebetet?<span class="pflicht">*</span></label>
-      <input type="number" id="gebete" name="gebete"
-             placeholder="z. B. 150 (Anzahl der Gebete)" min="0" required>
+        <label for="amt">Amt / Funktion:<span class="pflicht">*</span></label>
+        <input type="text" id="amt" name="amt"
+               placeholder="z. B. Präsident, Sekretär, Nasir usw."
+               pattern="[A-Za-zÄÖÜäöüß\s]+" title="Nur Buchstaben erlaubt" required>
+      </fieldset>
 
-      <label for="koran">Haben Sie den Koran gelesen?<span class="pflicht">*</span></label>
-      <select id="koran" name="koran" required>
-        <option value="" selected>Bitte auswählen</option>
-        <option>Ja</option>
-        <option>Nein</option>
-      </select>
+      <!-- Abschnitt 2 -->
+      <fieldset>
+        <legend>Namaz & Tarbiyyat</legend>
 
-      <label for="moschee">Wie oft waren Sie in der Moschee?<span class="pflicht">*</span></label>
-      <input type="number" id="moschee" name="moschee"
-             placeholder="Anzahl der Besuche (z. B. 8)" min="0" required>
+        <label for="gebete">Wie oft haben Sie gebetet?<span class="pflicht">*</span></label>
+        <input type="number" id="gebete" name="gebete"
+               placeholder="z. B. 150 (Anzahl der Gebete)" min="0" required>
 
-      <label for="freitagsansprache">Haben Sie die Freitagsansprache gehört?<span class="pflicht">*</span></label>
-      <select id="freitagsansprache" name="freitagsansprache" required>
-        <option value="" selected>Bitte auswählen</option>
-        <option>Ja</option>
-        <option>Nein</option>
-      </select>
+        <label for="koran">Haben Sie den Koran gelesen?<span class="pflicht">*</span></label>
+        <select id="koran" name="koran" required>
+          <option value="" selected>Bitte auswählen</option>
+          <option>Ja</option>
+          <option>Nein</option>
+        </select>
 
-      <label for="bemerkungen">Zusätzliche Bemerkungen:</label>
-      <textarea id="bemerkungen" name="bemerkungen" rows="4"
-                placeholder="Hier können Sie zusätzliche Informationen eintragen..."></textarea>
+        <label for="moschee">Wie oft waren Sie in der Moschee?<span class="pflicht">*</span></label>
+        <input type="number" id="moschee" name="moschee"
+               placeholder="Anzahl der Besuche (z. B. 8)" min="0" required>
+
+        <label for="freitagsansprache">Haben Sie die Freitagsansprache gehört?<span class="pflicht">*</span></label>
+        <select id="freitagsansprache" name="freitagsansprache" required>
+          <option value="" selected>Bitte auswählen</option>
+          <option>Ja</option>
+          <option>Nein</option>
+        </select>
+      </fieldset>
+
+      <!-- Abschnitt 3 -->
+      <fieldset>
+        <legend>Sonstiges</legend>
+
+        <label for="bemerkungen">Zusätzliche Bemerkungen:</label>
+        <textarea id="bemerkungen" name="bemerkungen" rows="4"
+                  placeholder="Hier können Sie zusätzliche Informationen eintragen..."></textarea>
+      </fieldset>
 
       <button type="submit">Bericht absenden</button>
     </form>

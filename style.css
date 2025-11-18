@@ -202,3 +202,19 @@ button:hover {
     font-size: 14px;
   }
 }
+
+/* Abschnittsrahmen */
+fieldset {
+  border: 1px solid #c9e2d0;
+  border-radius: 10px;
+  padding: 20px;
+  background: #f9fbfa;
+  box-shadow: 0 1px 4px rgba(0, 102, 51, 0.1);
+}
+
+legend {
+  font-weight: bold;
+  color: #006633;
+  padding: 0 8px;
+  font-size: 15px;
+}
